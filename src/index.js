@@ -1,5 +1,5 @@
 const { ApolloServer } = require('apollo-server');
-const { ApolloServerPluginUsageReporting } = require("apollo-server-core");
+const { ApolloServerPluginUsageReporting, userSuppliedLogic } = require("apollo-server-core");
 const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
 const TrackAPI = require('./datasources/track-api');
