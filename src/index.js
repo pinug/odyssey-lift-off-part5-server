@@ -1,5 +1,5 @@
 const { ApolloServer } = require('apollo-server');
-const { ApolloServerPluginUsageReporting, userSuppliedLogic } = require("apollo-server-core");
+const { ApolloServerPluginUsageReporting } = require("apollo-server-core");
 const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
 const TrackAPI = require('./datasources/track-api');
@@ -17,6 +17,7 @@ async function startApolloServer(typeDefs, resolvers) {
         trackAPI: new TrackAPI(),
       };
     },
+    /*
     // Apollo Client ta belirlediğin ayarlara göre
     // buradan yani apollo server dan çekiyorsun bu bilgileri
     // buradan da apollo studio da tracing report olarak göreceksin
@@ -36,6 +37,7 @@ async function startApolloServer(typeDefs, resolvers) {
     plugins: [
       ApolloServerPluginUsageReporting({
         generateClientInfo: ({ request }) => {
+          // userSuppliedLogic i kendin yazman lazım..
           const { clientName, clientVersion } = userSuppliedLogic(request);
           return {
             clientName,
@@ -44,6 +46,7 @@ async function startApolloServer(typeDefs, resolvers) {
         }
       })
     ],
+    */
 
   });
 
